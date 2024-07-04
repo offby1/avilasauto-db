@@ -88,7 +88,7 @@ class Inventory(models.Model):
     stock_level = models.IntegerField()
 
     def __str__(self) -> str:
-        return (f"{self.item_name} {self.item_type}")
+        return (f"{self.item_name} {self.item_type} {self.stock_level}")
     
     def add_stock(self, new_supplies):
         self.stock_level += new_supplies
