@@ -4,6 +4,9 @@ from .forms import CustomerForm, VehicleForm, ServiceRecordForm
 
 # Create your views here.
 
+def index(request):
+    return render(request, "shopapp/index.html")
+
 def add_customer(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)
@@ -12,7 +15,7 @@ def add_customer(request):
             return redirect("customer_list")
         else:
             form = CustomerForm()
-        return render(request, "add_customer.htnl", {"form": form})
+        return render(request, "add_customer.html", {"form": form})
     
 def customer_list(request):
     customers = Customer.objects.all()
